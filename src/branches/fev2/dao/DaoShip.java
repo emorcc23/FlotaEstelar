@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package branches.fev1.dao;
+package branches.fev2.dao;
 
 import branches.fev1.files.Ship;
 import java.sql.Connection;
