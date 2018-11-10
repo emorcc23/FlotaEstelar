@@ -61,27 +61,20 @@ public class Principal extends javax.swing.JFrame {
             jLabel2 = new javax.swing.JLabel();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-            setTitle("Starfleet");
+            setTitle("StarfleetV2");
 
             jPanel1.setLayout(null);
 
             btnAdd.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 12)); // NOI18N
             btnAdd.setText("Add");
             btnAdd.addActionListener(new java.awt.event.ActionListener() {
-                  public void actionPerformedAdd(java.awt.event.ActionEvent evt, JComboBox combo) {
-                	  try {
-  						btnAddActionPerformed(evt, combo);
-  					} catch (Exception e) {
-  						
-  					}
-                        
+                  public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        try {
+                        	btnAddActionPerformed(evt, jComboBox1);
+                        } catch (Exception e) {
+                        	
+                        }
                   }
-
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					btnAddActionPerformed(e, jComboBox1);
-					
-				}
             });
             jPanel1.add(btnAdd);
             btnAdd.setBounds(10, 670, 250, 26);
@@ -89,17 +82,12 @@ public class Principal extends javax.swing.JFrame {
             btnList.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 12)); // NOI18N
             btnList.setText("List");
             btnList.addActionListener(new java.awt.event.ActionListener() {
-                  public void actionPerformedList(java.awt.event.ActionEvent evt) {
-                	  try {
-                		  btnListActionPerformed(evt, jComboBox1);
-                	  } catch (Exception e) {
-                		  
-                	  }
-                        
-                  }
-                  @Override
-                  public void actionPerformed(ActionEvent e) {
-                	  btnListActionPerformed(e, jComboBox1);
+                  public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        try {
+                        	btnListActionPerformed(evt, jComboBox1);
+                        } catch (Exception e) {
+                        	
+                        }
                   }
             });
             jPanel1.add(btnList);
@@ -108,17 +96,12 @@ public class Principal extends javax.swing.JFrame {
             btnUpdate.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 12)); // NOI18N
             btnUpdate.setText("Update");
             btnUpdate.addActionListener(new java.awt.event.ActionListener() {
-                  public void actionPerformedUpdate(java.awt.event.ActionEvent evt) {
-                	  try {
-                		  btnUpdateActionPerformed(evt, jComboBox1);
-                	  } catch (Exception e) {
-                		  
-                	  }
-                        
-                  }
-                  @Override
-                  public void actionPerformed(ActionEvent e) {
-                	  btnUpdateActionPerformed(e, jComboBox1);
+                  public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        try {
+                        	btnUpdateActionPerformed(evt, jComboBox1);
+                        } catch (Exception e) {
+                        	
+                        }
                   }
             });
             jPanel1.add(btnUpdate);
@@ -127,17 +110,12 @@ public class Principal extends javax.swing.JFrame {
             btnRemove.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 12)); // NOI18N
             btnRemove.setText("Remove");
             btnRemove.addActionListener(new java.awt.event.ActionListener() {
-                  public void actionPerformedRemove(java.awt.event.ActionEvent evt) {
+                  public void actionPerformed(java.awt.event.ActionEvent evt) {
                         try {
                         	btnRemoveActionPerformed(evt, jComboBox1);
                         } catch (Exception e) {
                         	
                         }
-                  }
-                  
-                  @Override
-                  public void actionPerformed(ActionEvent e) {
-                	  btnRemoveActionPerformed(e, jComboBox1);
                   }
             });
             jPanel1.add(btnRemove);

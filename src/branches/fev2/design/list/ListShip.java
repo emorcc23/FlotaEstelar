@@ -5,6 +5,13 @@
  */
 package branches.fev2.design.list;
 
+import branches.fev2.methods.Methods;
+import java.awt.Color;
+import java.awt.Font;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.JTableHeader;
+
 /**
  *
  * @author Álvaro Santos
@@ -17,6 +24,11 @@ public class ListShip extends javax.swing.JDialog {
       public ListShip(java.awt.Frame parent, boolean modal) {
             super(parent, modal);
             initComponents();
+            try {
+                  Methods.getInstance().designTables(tableListShips, jScrollPane1);
+            } catch (SQLException e) {
+
+            }
       }
 
       /**
@@ -47,6 +59,7 @@ public class ListShip extends javax.swing.JDialog {
             jPanel1.add(jLabel2);
             jLabel2.setBounds(390, 50, 140, 21);
 
+            tableListShips.setBackground(new java.awt.Color(204, 204, 204));
             tableListShips.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 12)); // NOI18N
             tableListShips.setModel(new javax.swing.table.DefaultTableModel(
                   new Object [][] {
@@ -89,6 +102,7 @@ public class ListShip extends javax.swing.JDialog {
                         return canEdit [columnIndex];
                   }
             });
+            tableListShips.getTableHeader().setReorderingAllowed(false);
             jScrollPane1.setViewportView(tableListShips);
             if (tableListShips.getColumnModel().getColumnCount() > 0) {
                   tableListShips.getColumnModel().getColumn(0).setResizable(false);
@@ -108,6 +122,11 @@ public class ListShip extends javax.swing.JDialog {
 
             btnExit.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 12)); // NOI18N
             btnExit.setText("Exit");
+            btnExit.addActionListener(new java.awt.event.ActionListener() {
+                  public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        btnExitActionPerformed(evt);
+                  }
+            });
             jPanel1.add(btnExit);
             btnExit.setBounds(300, 490, 300, 26);
 
@@ -132,6 +151,11 @@ public class ListShip extends javax.swing.JDialog {
 
             pack();
       }// </editor-fold>//GEN-END:initComponents
+
+      private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+            this.setVisible(false);
+            this.dispose();
+      }//GEN-LAST:event_btnExitActionPerformed
 
       /**
        * @param args the command line arguments
