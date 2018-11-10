@@ -5,6 +5,10 @@
  */
 package branches.fev2.design.add;
 
+import branches.fev1.dao.DaoShip;
+import branches.fev2.files.Ship;
+import java.sql.SQLException;
+
 /**
  *
  * @author Álvaro Santos
@@ -124,6 +128,11 @@ public class AddShip extends javax.swing.JDialog {
 
             btnAddShip.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 12)); // NOI18N
             btnAddShip.setText("Add");
+            btnAddShip.addActionListener(new java.awt.event.ActionListener() {
+                  public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        btnAddShipActionPerformed(evt);
+                  }
+            });
             jPanel1.add(btnAddShip);
             btnAddShip.setBounds(43, 490, 290, 26);
 
@@ -144,6 +153,11 @@ public class AddShip extends javax.swing.JDialog {
 
             pack();
       }// </editor-fold>//GEN-END:initComponents
+
+      private void btnAddShipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddShipActionPerformed
+
+
+      }//GEN-LAST:event_btnAddShipActionPerformed
 
       /**
        * @param args the command line arguments

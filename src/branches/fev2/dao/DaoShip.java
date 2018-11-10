@@ -36,7 +36,7 @@ public class DaoShip {
       }
 
       /*
-      MÉTODOS PROPIOS DE LA CLASE DAO
+      * MÉTODOS PROPIOS DE LA CLASE DAO
        */
       public void insert(Ship e) throws SQLException {
 
@@ -109,7 +109,7 @@ public class DaoShip {
 
       public void update(Ship e) throws SQLException {
 
-            if (e.getId_ship()== 0) {
+            if (e.getId_ship() == 0) {
                   return;
             }
 
