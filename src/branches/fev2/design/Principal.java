@@ -27,71 +27,84 @@ public class Principal extends javax.swing.JFrame {
       // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
       private void initComponents() {
 
-            jLabel1 = new javax.swing.JLabel();
+            jPanel1 = new javax.swing.JPanel();
             btnAdd = new javax.swing.JButton();
             btnList = new javax.swing.JButton();
             btnUpdate = new javax.swing.JButton();
             btnRemove = new javax.swing.JButton();
             btnExit = new javax.swing.JButton();
+            jLabel3 = new javax.swing.JLabel();
+            jLabel1 = new javax.swing.JLabel();
+            jLabel2 = new javax.swing.JLabel();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+            setTitle("Starfleet");
 
-            jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/branches/fev2/design/images/background.JPG"))); // NOI18N
+            jPanel1.setLayout(null);
 
+            btnAdd.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 12)); // NOI18N
             btnAdd.setText("Add");
+            jPanel1.add(btnAdd);
+            btnAdd.setBounds(10, 670, 250, 26);
 
+            btnList.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 12)); // NOI18N
             btnList.setText("List");
+            jPanel1.add(btnList);
+            btnList.setBounds(260, 670, 250, 26);
 
+            btnUpdate.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 12)); // NOI18N
             btnUpdate.setText("Update");
+            jPanel1.add(btnUpdate);
+            btnUpdate.setBounds(510, 670, 260, 26);
 
+            btnRemove.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 12)); // NOI18N
             btnRemove.setText("Remove");
+            jPanel1.add(btnRemove);
+            btnRemove.setBounds(770, 670, 250, 26);
 
+            btnExit.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 12)); // NOI18N
             btnExit.setText("Exit");
             btnExit.addActionListener(new java.awt.event.ActionListener() {
                   public void actionPerformed(java.awt.event.ActionEvent evt) {
                         btnExitActionPerformed(evt);
                   }
             });
+            jPanel1.add(btnExit);
+            btnExit.setBounds(1020, 670, 250, 26);
+
+            jLabel3.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 10)); // NOI18N
+            jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+            jLabel3.setText("Álvaro Santos");
+            jPanel1.add(jLabel3);
+            jLabel3.setBounds(600, 490, 90, 12);
+
+            jLabel1.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 18)); // NOI18N
+            jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+            jLabel1.setText("Starfleet V2");
+            jPanel1.add(jLabel1);
+            jLabel1.setBounds(580, 470, 140, 21);
+
+            jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/branches/fev2/design/images/background.JPG"))); // NOI18N
+            jPanel1.add(jLabel2);
+            jLabel2.setBounds(0, -20, 1280, 750);
 
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
                   layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                  .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnList, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                  .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                  .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1275, Short.MAX_VALUE)
             );
             layout.setVerticalGroup(
                   layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                  .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                              .addComponent(btnAdd)
-                              .addComponent(btnList)
-                              .addComponent(btnUpdate)
-                              .addComponent(btnRemove)
-                              .addComponent(btnExit)))
+                  .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
             );
 
             pack();
       }// </editor-fold>//GEN-END:initComponents
 
       private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-            setVisible(false);
-            dispose();
+            this.setVisible(false);
+            this.dispose();
       }//GEN-LAST:event_btnExitActionPerformed
 
       /**
@@ -136,5 +149,8 @@ public class Principal extends javax.swing.JFrame {
       private javax.swing.JButton btnRemove;
       private javax.swing.JButton btnUpdate;
       private javax.swing.JLabel jLabel1;
+      private javax.swing.JLabel jLabel2;
+      private javax.swing.JLabel jLabel3;
+      private javax.swing.JPanel jPanel1;
       // End of variables declaration//GEN-END:variables
 }
