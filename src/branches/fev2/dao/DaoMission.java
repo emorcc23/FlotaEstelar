@@ -5,7 +5,8 @@
  */
 package branches.fev2.dao;
 
-import branches.fev1.files.Mission;
+import branches.fev2.files.Mission;
+import branches.fev2.files.Ship;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -111,7 +112,7 @@ public class DaoMission {
 
       public void update(Mission e) throws SQLException {
 
-            if (e.getId_mission()== 0) {
+            if (e.getId_mission() == 0) {
                   return;
             }
 
@@ -127,16 +128,31 @@ public class DaoMission {
             ps.close();
 
       }
-      
+
       public int extractLastId() throws SQLException {
             int lastId = 0;
 
             PreparedStatement ps = con.prepareStatement("SELECT id_mision  FROM mision order by id_mision desc limit 1;");
             ResultSet rs = ps.executeQuery();
-            if (rs.next()) { 
-                  lastId = rs.getInt("id_mision") +1;
+            if (rs.next()) {
+                  lastId = rs.getInt("id_mision") + 1;
             }
 
             return lastId;
+      }
+
+      public ArrayList<Ship> extractIdShip() throws SQLException {
+            PreparedStatement ps = con.prepareStatement("SELECT id_nave FROM nave");
+            ResultSet rs = ps.executeQuery();
+            ArrayList<Ship> result = null;
+            while (rs.next()) {
+                  if (result == null) {
+                        result = new ArrayList<>();
+                  }
+                  result.add(new Ship(rs.getInt("id_nave")));
+            }
+            rs.close();
+            ps.close();
+            return result;
       }
 }

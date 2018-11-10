@@ -5,7 +5,8 @@
  */
 package branches.fev2.dao;
 
-import branches.fev1.files.Logbook;
+import branches.fev2.files.Logbook;
+import branches.fev2.files.Ship;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -138,5 +139,20 @@ public class DaoLogbook {
             }
 
             return lastId;
+      }
+      
+      public ArrayList<Ship> extractIdShip() throws SQLException {
+            PreparedStatement ps = con.prepareStatement("SELECT id_nave FROM nave");
+            ResultSet rs = ps.executeQuery();
+            ArrayList<Ship> result = null;
+            while (rs.next()) {
+                  if (result == null) {
+                        result = new ArrayList<>();
+                  }
+                  result.add(new Ship(rs.getInt("id_nave")));
+            }
+            rs.close();
+            ps.close();
+            return result;
       }
 }

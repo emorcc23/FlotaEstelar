@@ -10,6 +10,8 @@ import static com.oracle.nio.BufferSecrets.instance;
 import java.awt.Color;
 import java.awt.Font;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -20,9 +22,9 @@ import javax.swing.table.JTableHeader;
  * @author Álvaro Santos
  */
 public class Methods {
-      
+
       private static Methods instance = null;
-      
+
       public static Methods getInstance() throws SQLException {
             if (instance == null) {
                   instance = new Methods();

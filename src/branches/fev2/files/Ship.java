@@ -34,6 +34,10 @@ public class Ship {
             this.type = type;
             this.image = image;
       }
+      
+      public Ship (int id_ship) {
+            this.id_ship = id_ship;
+      }
 
       public int getId_ship() {
             return id_ship;

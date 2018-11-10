@@ -6,7 +6,11 @@
 package branches.fev2.design.add;
 
 import branches.fev2.dao.DaoTripulant;
+import branches.fev2.files.Ship;
+import branches.fev2.files.Tripulant;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,8 +27,13 @@ public class AddTripulant extends javax.swing.JDialog {
             try {
                   int lastId = DaoTripulant.getInstance().extractLastId();
                   txtIdTripulant.setText(String.valueOf(lastId));
+                  ArrayList<Ship> listIdShip = DaoTripulant.getInstance().extractIdShip();
+                  comboIdShip.removeAllItems();
+                  for (int i = 0; i < listIdShip.size(); i++) {
+                        String ids = Integer.toString(listIdShip.get(i).getId_ship());
+                        comboIdShip.addItem(ids);
+                  }
             } catch (SQLException e) {
-                  System.out.println("Error Last Id");
                   System.out.println(e);
             }
       }
@@ -177,6 +186,11 @@ public class AddTripulant extends javax.swing.JDialog {
 
             btnAddTripulant.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 12)); // NOI18N
             btnAddTripulant.setText("Add");
+            btnAddTripulant.addActionListener(new java.awt.event.ActionListener() {
+                  public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        btnAddTripulantActionPerformed(evt);
+                  }
+            });
             jPanel1.add(btnAddTripulant);
             btnAddTripulant.setBounds(30, 640, 300, 26);
 
@@ -197,6 +211,28 @@ public class AddTripulant extends javax.swing.JDialog {
 
             pack();
       }// </editor-fold>//GEN-END:initComponents
+
+      private void btnAddTripulantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddTripulantActionPerformed
+
+            try {
+                  String name = txtName.getText();
+                  String position = txtPosition.getText();
+                  String gender = txtGender.getText();
+                  int experience = Integer.parseInt(txtExperience.getText());
+                  String origin = txtOrigin.getText();
+                  String race = txtRace.getText();
+                  int age = Integer.parseInt(txtAge.getText());
+                  String image = txtImage.getText();
+                  int idShip  = Integer.parseInt(comboIdShip.getSelectedItem().toString());
+                  Tripulant tripulant = new Tripulant(name, position, gender, experience, origin, race, age, image, idShip);
+                  DaoTripulant.getInstance().insert(tripulant);
+                  System.out.println("Add successfully");
+                  JOptionPane.showMessageDialog(null, "Added successfully");
+            } catch (Exception e) {
+                  System.out.println(e);
+            }
+
+      }//GEN-LAST:event_btnAddTripulantActionPerformed
 
       /**
        * @param args the command line arguments

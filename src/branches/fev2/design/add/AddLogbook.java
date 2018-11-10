@@ -6,7 +6,11 @@
 package branches.fev2.design.add;
 
 import branches.fev2.dao.DaoLogbook;
+import branches.fev2.files.Logbook;
+import branches.fev2.files.Ship;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,6 +27,12 @@ public class AddLogbook extends javax.swing.JDialog {
             try {
                   int lastId = DaoLogbook.getInstance().extractLastId();
                   txtIdLogbook.setText(String.valueOf(lastId));
+                  ArrayList<Ship> listIdShip = DaoLogbook.getInstance().extractIdShip();
+                  comboIdShip.removeAllItems();
+                  for (int i = 0; i < listIdShip.size(); i++) {
+                        String ids = Integer.toString(listIdShip.get(i).getId_ship());
+                        comboIdShip.addItem(ids);
+                  }
             } catch (SQLException e) {
                   System.out.println("Error Last Id");
                   System.out.println(e);
@@ -116,6 +126,11 @@ public class AddLogbook extends javax.swing.JDialog {
 
             btnAddLogbook.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 12)); // NOI18N
             btnAddLogbook.setText("Add");
+            btnAddLogbook.addActionListener(new java.awt.event.ActionListener() {
+                  public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        btnAddLogbookActionPerformed(evt);
+                  }
+            });
             jPanel1.add(btnAddLogbook);
             btnAddLogbook.setBounds(33, 480, 300, 26);
 
@@ -136,6 +151,21 @@ public class AddLogbook extends javax.swing.JDialog {
 
             pack();
       }// </editor-fold>//GEN-END:initComponents
+
+      private void btnAddLogbookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddLogbookActionPerformed
+            try {
+                  int idShip = Integer.parseInt(comboIdShip.getSelectedItem().toString());
+                  String date = txtDate.getText();
+                  String description = txtDescription.getText();
+                  String audio = txtAudio.getText();
+                  Logbook logbook = new Logbook(idShip, date, description, audio);
+                  DaoLogbook.getInstance().insert(logbook);
+                  System.out.println("Add successfully");
+                  JOptionPane.showMessageDialog(null, "Added successfully");
+            } catch (Exception e) {
+                  System.out.println(e);
+            }
+      }//GEN-LAST:event_btnAddLogbookActionPerformed
 
       /**
        * @param args the command line arguments

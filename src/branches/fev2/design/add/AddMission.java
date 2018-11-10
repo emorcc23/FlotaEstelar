@@ -6,7 +6,11 @@
 package branches.fev2.design.add;
 
 import branches.fev2.dao.DaoMission;
+import branches.fev2.files.Mission;
+import branches.fev2.files.Ship;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,6 +27,12 @@ public class AddMission extends javax.swing.JDialog {
             try {
                   int lastId = DaoMission.getInstance().extractLastId();
                   txtIdMission.setText(String.valueOf(lastId));
+                  ArrayList<Ship> listIdShip = DaoMission.getInstance().extractIdShip();
+                  comboIdShip.removeAllItems();
+                  for (int i = 0; i < listIdShip.size(); i++) {
+                        String ids = Integer.toString(listIdShip.get(i).getId_ship());
+                        comboIdShip.addItem(ids);
+                  }
             } catch (SQLException e) {
                   System.out.println("Error Last Id");
                   System.out.println(e);
@@ -88,6 +98,11 @@ public class AddMission extends javax.swing.JDialog {
 
             btnAddMission.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 12)); // NOI18N
             btnAddMission.setText("Add");
+            btnAddMission.addActionListener(new java.awt.event.ActionListener() {
+                  public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        btnAddMissionActionPerformed(evt);
+                  }
+            });
             jPanel2.add(btnAddMission);
             btnAddMission.setBounds(40, 500, 290, 26);
 
@@ -126,6 +141,20 @@ public class AddMission extends javax.swing.JDialog {
 
             pack();
       }// </editor-fold>//GEN-END:initComponents
+
+      private void btnAddMissionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMissionActionPerformed
+            try {
+                  String name = txtName.getText();
+                  int idShip = Integer.parseInt(comboIdShip.getSelectedItem().toString());
+                  String description = txtDescription.getText();
+                  Mission mission = new Mission(name, idShip, description);
+                  DaoMission.getInstance().insert(mission);
+                  System.out.println("Add successfully");
+                  JOptionPane.showMessageDialog(null, "Added successfully");
+            } catch (Exception e) {
+                  System.out.println(e);
+            }
+      }//GEN-LAST:event_btnAddMissionActionPerformed
 
       /**
        * @param args the command line arguments
