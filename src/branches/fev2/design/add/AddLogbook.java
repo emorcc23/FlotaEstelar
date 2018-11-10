@@ -7,7 +7,7 @@ package branches.fev2.design.add;
 
 /**
  *
- * @author alvaro.santos
+ * @author Álvaro Santos
  */
 public class AddLogbook extends javax.swing.JDialog {
 

@@ -5,11 +5,9 @@
  */
 package branches.fev2.design.remove;
 
-import branches.fev2.design.list.*;
-
 /**
  *
- * @author alvaro.santos
+ * @author Álvaro Santos
  */
 public class RemoveLogbook extends javax.swing.JDialog {
 

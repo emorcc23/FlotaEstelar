@@ -7,7 +7,7 @@ package branches.fev2.design.list;
 
 /**
  *
- * @author alvaro.santos
+ * @author Álvaro Santos
  */
 public class ListLogbook extends javax.swing.JDialog {
 

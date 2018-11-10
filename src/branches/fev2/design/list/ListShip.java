@@ -7,7 +7,7 @@ package branches.fev2.design.list;
 
 /**
  *
- * @author alvaro.santos
+ * @author Álvaro Santos
  */
 public class ListShip extends javax.swing.JDialog {
 

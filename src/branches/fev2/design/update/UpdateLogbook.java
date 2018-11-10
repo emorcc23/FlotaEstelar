@@ -10,7 +10,7 @@ import branches.fev2.design.list.*;
 
 /**
  *
- * @author alvaro.santos
+ * @author Álvaro Santos
  */
 public class UpdateLogbook extends javax.swing.JDialog {
 

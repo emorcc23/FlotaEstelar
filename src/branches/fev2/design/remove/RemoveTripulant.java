@@ -9,7 +9,7 @@ import branches.fev2.design.list.*;
 
 /**
  *
- * @author alvaro.santos
+ * @author Álvaro Santos
  */
 public class RemoveTripulant extends javax.swing.JDialog {
 

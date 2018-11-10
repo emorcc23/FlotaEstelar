@@ -5,12 +5,9 @@
  */
 package branches.fev2.design.update;
 
-import branches.fev2.design.remove.*;
-import branches.fev2.design.list.*;
-
 /**
  *
- * @author alvaro.santos
+ * @author Álvaro Santos
  */
 public class UpdateMission extends javax.swing.JDialog {
 
