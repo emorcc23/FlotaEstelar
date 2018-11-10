@@ -5,6 +5,9 @@
  */
 package branches.fev2.design.add;
 
+import branches.fev2.dao.DaoLogbook;
+import java.sql.SQLException;
+
 /**
  *
  * @author Álvaro Santos
@@ -17,6 +20,13 @@ public class AddLogbook extends javax.swing.JDialog {
       public AddLogbook(java.awt.Frame parent, boolean modal) {
             super(parent, modal);
             initComponents();
+            try {
+                  int lastId = DaoLogbook.getInstance().extractLastId();
+                  txtIdLogbook.setText(String.valueOf(lastId));
+            } catch (SQLException e) {
+                  System.out.println("Error Last Id");
+                  System.out.println(e);
+            }
       }
 
       /**
@@ -83,6 +93,7 @@ public class AddLogbook extends javax.swing.JDialog {
             jPanel1.add(jLabel7);
             jLabel7.setBounds(170, 350, 39, 14);
 
+            txtIdLogbook.setEditable(false);
             txtIdLogbook.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 12)); // NOI18N
             jPanel1.add(txtIdLogbook);
             txtIdLogbook.setBounds(30, 170, 310, 26);

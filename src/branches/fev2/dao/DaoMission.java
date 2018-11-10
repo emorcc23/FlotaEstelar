@@ -127,4 +127,16 @@ public class DaoMission {
             ps.close();
 
       }
+      
+      public int extractLastId() throws SQLException {
+            int lastId = 0;
+
+            PreparedStatement ps = con.prepareStatement("SELECT id_mision  FROM mision order by id_mision desc limit 1;");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) { 
+                  lastId = rs.getInt("id_mision") +1;
+            }
+
+            return lastId;
+      }
 }

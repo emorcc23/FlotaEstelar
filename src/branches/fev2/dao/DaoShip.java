@@ -5,11 +5,12 @@
  */
 package branches.fev2.dao;
 
-import branches.fev1.files.Ship;
+import branches.fev2.files.Ship;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -40,14 +41,13 @@ public class DaoShip {
        */
       public void insert(Ship e) throws SQLException {
 
-            PreparedStatement ps = con.prepareStatement("INSERT INTO nave (id_nave,capitan,nombre,matricula,tipo,foto) VALUES (?,?,?,?,?,?)");
+            PreparedStatement ps = con.prepareStatement("INSERT INTO nave (capitan,nombre,matricula,tipo,foto) VALUES (?,?,?,?,?)");
 
-            ps.setInt(1, e.getId_ship());
-            ps.setString(2, e.getCaptain());
-            ps.setString(3, e.getName());
-            ps.setString(4, e.getRegister());
-            ps.setString(5, e.getType());
-            ps.setString(6, e.getImage());
+            ps.setString(1, e.getCaptain());
+            ps.setString(2, e.getName());
+            ps.setString(3, e.getRegister());
+            ps.setString(4, e.getType());
+            ps.setString(5, e.getImage());
 
             ps.executeUpdate();
             ps.close();
@@ -123,4 +123,17 @@ public class DaoShip {
             ps.executeUpdate();
             ps.close();
       }
+
+      public int extractLastId() throws SQLException {
+            int lastId = 0;
+
+            PreparedStatement ps = con.prepareStatement("SELECT id_nave  FROM nave order by id_nave desc limit 1;");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                  lastId = rs.getInt("id_nave") + 1;
+            }
+
+            return lastId;
+      }
+
 }

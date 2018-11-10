@@ -5,6 +5,9 @@
  */
 package branches.fev2.design.add;
 
+import branches.fev2.dao.DaoTripulant;
+import java.sql.SQLException;
+
 /**
  *
  * @author Álvaro Santos
@@ -17,6 +20,13 @@ public class AddTripulant extends javax.swing.JDialog {
       public AddTripulant(java.awt.Frame parent, boolean modal) {
             super(parent, modal);
             initComponents();
+            try {
+                  int lastId = DaoTripulant.getInstance().extractLastId();
+                  txtIdTripulant.setText(String.valueOf(lastId));
+            } catch (SQLException e) {
+                  System.out.println("Error Last Id");
+                  System.out.println(e);
+            }
       }
 
       /**
@@ -124,6 +134,7 @@ public class AddTripulant extends javax.swing.JDialog {
             jPanel1.add(jLabel12);
             jLabel12.setBounds(140, 560, 90, 14);
 
+            txtIdTripulant.setEditable(false);
             txtIdTripulant.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 12)); // NOI18N
             jPanel1.add(txtIdTripulant);
             txtIdTripulant.setBounds(31, 130, 300, 26);

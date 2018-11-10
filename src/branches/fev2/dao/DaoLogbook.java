@@ -111,7 +111,7 @@ public class DaoLogbook {
 
       public void update(Logbook e) throws SQLException {
 
-            if (e.getId_logbook()== 0) {
+            if (e.getId_logbook() == 0) {
                   return;
             }
 
@@ -126,5 +126,17 @@ public class DaoLogbook {
 
             ps.close();
 
+      }
+
+      public int extractLastId() throws SQLException {
+            int lastId = 0;
+
+            PreparedStatement ps = con.prepareStatement("SELECT id_cuaderno  FROM cuaderno order by id_cuaderno desc limit 1;");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                  lastId = rs.getInt("id_cuaderno") + 1;
+            }
+
+            return lastId;
       }
 }

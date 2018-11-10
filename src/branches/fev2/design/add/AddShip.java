@@ -5,7 +5,7 @@
  */
 package branches.fev2.design.add;
 
-import branches.fev1.dao.DaoShip;
+import branches.fev2.dao.DaoShip;
 import branches.fev2.files.Ship;
 import java.sql.SQLException;
 
@@ -21,6 +21,14 @@ public class AddShip extends javax.swing.JDialog {
       public AddShip(java.awt.Frame parent, boolean modal) {
             super(parent, modal);
             initComponents();
+            try {
+                  int lastId = DaoShip.getInstance().extractLastId();
+                  txtIdShip.setText(String.valueOf(lastId));
+            } catch (SQLException e) {
+                  System.out.println("Error Last Id");
+                  System.out.println(e);
+            }
+
       }
 
       /**
@@ -96,6 +104,7 @@ public class AddShip extends javax.swing.JDialog {
             jPanel1.add(jLabel7);
             jLabel7.setBounds(170, 390, 38, 14);
 
+            txtIdShip.setEditable(false);
             txtIdShip.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 12)); // NOI18N
             txtIdShip.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
             jPanel1.add(txtIdShip);
@@ -155,8 +164,21 @@ public class AddShip extends javax.swing.JDialog {
       }// </editor-fold>//GEN-END:initComponents
 
       private void btnAddShipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddShipActionPerformed
+            try {
 
+                  String captain = txtCaptain.getText();
+                  String name = txtName.getText();
+                  String register = txtRegister.getText();
+                  String type = txtType.getText();
+                  String image = txtImage.getText();
 
+                  Ship ship = new Ship(captain, name, register, type, image);
+                  DaoShip.getInstance().insert(ship);
+                  System.out.println("Registrao");
+            } catch (Exception e) {
+                  System.out.println("No se ha registrao");
+                  System.out.println(e);
+            }
       }//GEN-LAST:event_btnAddShipActionPerformed
 
       /**

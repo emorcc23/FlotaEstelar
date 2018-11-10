@@ -5,6 +5,9 @@
  */
 package branches.fev2.design.add;
 
+import branches.fev2.dao.DaoMission;
+import java.sql.SQLException;
+
 /**
  *
  * @author Álvaro Santos
@@ -17,6 +20,13 @@ public class AddMission extends javax.swing.JDialog {
       public AddMission(java.awt.Frame parent, boolean modal) {
             super(parent, modal);
             initComponents();
+            try {
+                  int lastId = DaoMission.getInstance().extractLastId();
+                  txtIdMission.setText(String.valueOf(lastId));
+            } catch (SQLException e) {
+                  System.out.println("Error Last Id");
+                  System.out.println(e);
+            }
       }
 
       /**
@@ -94,6 +104,7 @@ public class AddMission extends javax.swing.JDialog {
             jPanel2.add(txtName);
             txtName.setBounds(41, 240, 290, 26);
 
+            txtIdMission.setEditable(false);
             txtIdMission.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 12)); // NOI18N
             jPanel2.add(txtIdMission);
             txtIdMission.setBounds(41, 180, 290, 26);

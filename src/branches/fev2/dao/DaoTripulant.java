@@ -144,4 +144,16 @@ public class DaoTripulant {
             ps.close();
 
       }
+      
+      public int extractLastId() throws SQLException {
+            int lastId = 0;
+
+            PreparedStatement ps = con.prepareStatement("SELECT id_tripulante  FROM tripulante order by id_tripulante desc limit 1;");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) { 
+                  lastId = rs.getInt("id_tripulante") +1;
+            }
+
+            return lastId;
+      }
 }

@@ -123,4 +123,8 @@ public class DaoShip {
             ps.executeUpdate();
             ps.close();
       }
+
+      public void insert(branches.fev2.files.Ship addShip) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      }
 }
